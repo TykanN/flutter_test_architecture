@@ -23,11 +23,13 @@ jobs:
       - run: flutter doctor -v
 
       - name: Get pub packages
-      - run: flutter pub get
+        run: flutter pub get
+        
+      - name: Linter
       - run: flutter analyze
 
       - name: Ensure the Dart code is formatted correctly
         run: flutter format --set-exit-if-changed --dry-run .
-        
+
       - name: Run Flutter unit tests
         run: flutter test
