@@ -24,9 +24,9 @@ jobs:
 
       - name: Get pub packages
         run: flutter pub get
-        
+
       - name: Linter
-      - run: flutter analyze
+        run: flutter analyze
 
       - name: Ensure the Dart code is formatted correctly
         run: flutter format --set-exit-if-changed --dry-run .
