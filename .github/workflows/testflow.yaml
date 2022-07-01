@@ -1,8 +1,5 @@
 name: Testflow
 on:
-  push:
-    branches:
-      - master
   pull_request:
    branches: ["master"]
 
@@ -12,7 +9,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, windows-2019, macos-10.15]
+        os: [ubuntu-latest, macos-latest]
     steps:
       # Set up Flutter.
       - uses: actions/checkout@v3
@@ -31,5 +28,5 @@ jobs:
       - name: Ensure the Dart code is formatted correctly
         run: flutter format --set-exit-if-changed --dry-run .
 
-      - name: Run Flutter unit tests
-        run: flutter test
+      - name: Run Flutter widget test
+        run: flutter test test/widget_test.dart
